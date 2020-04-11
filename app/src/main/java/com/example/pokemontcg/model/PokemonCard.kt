@@ -7,7 +7,8 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class PokemonCard(
     var name: String?,
-    @SerializedName("imageUrl") var image: String?,
+    @SerializedName("imageUrl")
+    var image: String?,
     var rarity: String?,
     var series: String?
 ) : Parcelable {
