@@ -1,17 +1,32 @@
 package com.example.pokemontcg.repository
 
 import com.example.pokemontcg.datastore.set.PokemonSetDataStore
+import com.example.pokemontcg.datastore.set.PokemonSetLocalDataStore
+import com.example.pokemontcg.datastore.set.PokemonSetRemoteDataStore
 import com.example.pokemontcg.model.PokemonSet
 
-class PokemonSetRepository(
-    private val setLocalDataStore: PokemonSetDataStore,
-    private val setRemoteDataStore: PokemonSetDataStore
-) {
+class PokemonSetRepository private constructor() {
+
+    private var setLocalDataStore: PokemonSetDataStore? = null
+    private var setRemoteDataStore: PokemonSetDataStore? = null
+
+    fun init(
+        setLocalDataStore: PokemonSetLocalDataStore,
+        setRemoteDataStore: PokemonSetRemoteDataStore
+    ) {
+        this.setLocalDataStore = setLocalDataStore
+        this.setRemoteDataStore = setRemoteDataStore
+    }
+
     suspend fun getSets(): MutableList<PokemonSet>? {
-        val cache = setLocalDataStore.getSets()
+        val cache = setLocalDataStore?.getSets()
         if (cache != null) return cache
-        val response = setRemoteDataStore.getSets()
-        setLocalDataStore.addAll(response)
+        val response = setRemoteDataStore?.getSets()
+        setLocalDataStore?.addAll(response)
         return response
+    }
+
+    companion object {
+        val instance by lazy { PokemonSetRepository() }
     }
 }
