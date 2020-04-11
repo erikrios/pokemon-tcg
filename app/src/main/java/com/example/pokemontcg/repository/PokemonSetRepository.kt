@@ -11,8 +11,8 @@ class PokemonSetRepository private constructor() {
     private var setRemoteDataStore: PokemonSetDataStore? = null
 
     fun init(
-        setLocalDataStore: PokemonSetLocalDataStore,
-        setRemoteDataStore: PokemonSetRemoteDataStore
+        setLocalDataStore: PokemonSetDataStore,
+        setRemoteDataStore: PokemonSetDataStore
     ) {
         this.setLocalDataStore = setLocalDataStore
         this.setRemoteDataStore = setRemoteDataStore
