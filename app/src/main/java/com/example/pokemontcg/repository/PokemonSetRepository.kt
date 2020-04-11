@@ -1,8 +1,6 @@
 package com.example.pokemontcg.repository
 
 import com.example.pokemontcg.datastore.set.PokemonSetDataStore
-import com.example.pokemontcg.datastore.set.PokemonSetLocalDataStore
-import com.example.pokemontcg.datastore.set.PokemonSetRemoteDataStore
 import com.example.pokemontcg.model.PokemonSet
 
 class PokemonSetRepository private constructor() {
