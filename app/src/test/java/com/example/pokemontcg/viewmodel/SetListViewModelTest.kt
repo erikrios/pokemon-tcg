@@ -47,12 +47,12 @@ class SetListViewModelTest {
             val state = setListViewModel!!.viewState.value!!
             assertFalse(state.loading)
             assertNull(state.error)
-            assertNull(state.data)
+            assertNotNull(state.data)
         }
     }
 
     @Test
-    fun shouldThrowErroeWhenRepositoryIsThrowingError() {
+    fun shouldThrowErrorWhenRepositoryIsThrowingError() {
         runBlocking {
             `when`(pokemonSetRepository?.getSets()).thenAnswer { throw Exception() }
             setListViewModel?.getSets()
