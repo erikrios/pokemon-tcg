@@ -1,7 +1,8 @@
-package com.example.pokemontcg
+package com.example.pokemontcg.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.example.pokemontcg.R
 
 class MainActivity : AppCompatActivity() {
 
