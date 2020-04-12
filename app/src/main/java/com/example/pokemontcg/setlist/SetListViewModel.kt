@@ -22,7 +22,7 @@ class SetListViewModel(private val pokemonSets: PokemonSetRepository) : ViewMode
     fun getSets() = viewModelScope.launch {
         try {
             val data = pokemonSets.getSets()
-            mViewState.value = mViewState.value?.copy(loading = true, error = null, data = data)
+            mViewState.value = mViewState.value?.copy(loading = false, error = null, data = data)
         } catch (ex: Exception) {
             mViewState.value = mViewState.value?.copy(loading = false, error = ex, data = null)
         }
