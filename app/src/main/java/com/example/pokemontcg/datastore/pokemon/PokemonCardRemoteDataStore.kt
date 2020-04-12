@@ -3,7 +3,7 @@ package com.example.pokemontcg.datastore.pokemon
 import com.example.pokemontcg.model.PokemonCard
 import com.example.pokemontcg.webservice.PokemonTcgService
 
-class PokemonRemoteDataStore(private val pokemonTcgService: PokemonTcgService) :
+class PokemonCardRemoteDataStore(private val pokemonTcgService: PokemonTcgService) :
     PokemonCardDataStore {
 
     override suspend fun getPokemons(set: String): MutableList<PokemonCard>? {
